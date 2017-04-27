@@ -31,8 +31,15 @@ namespace CoffeeShopLab20.Controllers
 
         public  ActionResult Success(Register r)
         {
-            ViewBag.Message = "Welcome to Coffee Shop App" + r.FirstName + r.Email;
+            ViewBag.Message = "Welcome to Coffee Shop App; your " + r.FirstName + " " + r.LastName + " your " + r.Email + " " + r.Coffee + " " + r.Tea + " " + r.Bakery;
 
+            return View();
+        }
+
+        public ActionResult Items()
+        {
+            ViewBag.Message = "Find the items you ordered here. Our Products include coffees, teas and bakery goodies.";
+                        
             return View();
         }
 

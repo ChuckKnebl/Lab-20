@@ -8,16 +8,69 @@
             Here is everything you need for registration.
         </p>
 
+@Html.ActionLink("Find the items here", "Items", "Home");
 
-    <form action="Success">
-        First name:<br>
-        <input type="text" name="FirstName" value="">
-        <br>
-        Email:
-        <input type="text" name="Email" value="">
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
+<script>
+    function validateForm() {
+        //var fName = document.forms["Reg"]["FirstName"].value;
+        var fName = $("#First").val();
+        alert(fName);
+        if (fName === "") {
+            alert("First Name must be filled out");
+            return false;
+        }
+        //var lName = document.forms["Reg"]["LastName"].value;
+        var lName = $("#Last").val();
+        alert(lName);
+        if (lName === "") {
+            alert("Last Name must be filled out");
+            return false;
+        }
 
+        var email = document.forms["Reg"]["email"].value;
+        //var email = $("#Email").val();
+        if (email === "") {
+            alert("Email Must filled out");
+            return false;
+        }
+    }
+</script>
+    
+<form name="Reg" action="Success" method="get" onsubmit="return validateForm()">
+    <fieldset>
+        <legend>PERSONAL INFORMATION</legend>
+            <p><em>First Name:</em></p>
+            <input id="First" type="text" name="FirstName" />
+        <p><em>Last Name:</em></p>
+        <input id="Last" type="text" name="LastName" />
+        
+        <p><em>Email:</em></p>
+        <input id="Mail" type="text" name="Email" />
+        
+    </fieldset>
+    <fieldset>
+        <legend>SELECTION CHOICES</legend>
+        <p><em>Would you like coffee?</em></p>
+        <input type="radio" name="Coffee" value="coffeeNo" checked /> No Coffee<br/>
+        <input type="radio" name="Coffee" value="coffee1"  /> Regular Coffee<br />
+        <input type="radio" name="Coffee" value="coffee2" /> Decaf Coffee<br/>
+        <br />
+        <br/>
+        <p><em>Would you like tea?</em></p>
+        <input type="radio" name="Tea" value="teaNo"checked/> No Tea<br/>
+        <input type="radio" name="Tea" value="tea1" /> Green Tea<br/>
+        <input type="radio" name="Tea" value="tea2"/> Black Tea<br/>
+        </br>
+        </br> 
+        <p><em>Would you like a bakery goodie?</em></p>
+        <input type="radio" name="Bakery" value="bakeryNo" checked/> No goodie<br/>
+        <input type="radio" name="Bakery" value="Muffin"/> Muffin<br/>
+        <input type="radio" name="Bakery" value="Scoon"/> Scoon<br/>
+        </br>
+        </br>
+        <input type="submit" name="submit" value="Submit">
+
+    </fieldset>
+</form>
 
     
